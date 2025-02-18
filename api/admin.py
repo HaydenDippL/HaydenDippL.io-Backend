@@ -1,8 +1,5 @@
 from django.contrib import admin
 
-from api.models.blog import Blog
-from api.models.project import Project
-
 from api.models.analytics import User, Session, PageAnalytic, LinksTaken, ReferredFrom, ArticleAnalytic
 
 admin.site.register(User)
