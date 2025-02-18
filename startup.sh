@@ -1,7 +1,5 @@
 #!/bin/sh
 
-service mysql start                      # start MySQL service
-
 python3 init_db.py                       # initializes the MySQL database (not the tables, but just the DB)
                                          # and the user profile if they don't exist
 
