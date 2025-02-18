@@ -75,7 +75,7 @@ class ArticleAnalytic(models.Model):
 
     session = models.ForeignKey(Session, on_delete=models.CASCADE, editable=False, null=True)
     article_type = models.PositiveSmallIntegerField(choices=ARTICLE_CHOICES, default=0, editable=False, db_comment="The link taken ['unknown', 'blog', 'project']")
-    article_id = models.PositiveSmallIntegerField(editable=False, db_default=-1, db_comment="The id of the article")
+    article_id = models.SmallIntegerField(editable=False, db_default=-1, db_comment="The id of the article")
     viewed_at = models.DateTimeField(auto_now_add=True, editable=False, db_comment="The date and time that the link was taken")
 
     def __str__(self):
