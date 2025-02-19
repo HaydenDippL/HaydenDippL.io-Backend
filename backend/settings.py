@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-di*+jhqr*84kx#=x265qm-*0cg3kz$-=ij^k#m-aq51o_5d4#c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.getenv("DROPLET_IP")]
 
 
 # Application definition

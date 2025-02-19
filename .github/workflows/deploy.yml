@@ -35,6 +35,7 @@ jobs:
                 SUPERUSER_USERNAME=${{ secrets.SUPERUSER_USERNAME }}
                 SUPERUSER_EMAIL=${{ secrets.SUPERUSER_EMAIL }}
                 SUPERUSER_PASSWORD=${{ secrets.SUPER_USER_PASSWORD }}
+                DROPLET_IP=${{ secrets.DROPLET_IP }}
                 EOF"
     
           - name: Deploy
