@@ -21,9 +21,19 @@ jobs:
             run: ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
 
           - name: Copy files
+            run: scp -r ./* root@${{ secrets.DROPLET_IP }}:/root/app/
+
+          - name: Create .env file
             run: |
-              scp -r ./* root@${{ secrets.DROPLET_IP }}:/root/app/
-              scp .env root@${{ secrets.DROPLET_IP }}:/root/app/
+              ssh root@${{ secrets.DROPLET_IP }} "cat > /root/app/.env << 'EOF'
+              MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
+              MYSQL_USER=${{ secrets.MYSQL_USER }}
+              MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
+              MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
+              SUPERUSER_USERNAME=${{ secrets.SUPERUSER_USERNAME }}
+              SUPERUSER_EMAIL=${{ secrets.SUPERUSER_EMAIL }}
+              SUPERUSER_PASSWORD=${{ secrets.SUPER_USER_PASSWORD }}
+              EOF"
     
           - name: Deploy
             run: |
