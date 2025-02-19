@@ -22,7 +22,7 @@ jobs:
 
           - name: Sync files
             run: |
-                ssh root@${{ secrets.DROPLET_IP }} "rm -rf /root/app/*"
+                ssh root@${{ secrets.DROPLET_IP }} "cd /root/app && rm -rf \$(ls -A | grep -Ev '^(certbot|nginx)$')"
                 scp -r ./* root@${{ secrets.DROPLET_IP }}:/root/app/
 
           - name: Create .env file
