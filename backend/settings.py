@@ -30,6 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["haydendippl-backend.dev", "www.haydendippl-backend.dev"]
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
