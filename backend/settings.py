@@ -62,7 +62,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'https://haydendippl.github.io/',
+    'https://haydendippl.github.io',
 ]
 
 ROOT_URLCONF = 'backend.urls'
